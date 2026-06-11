@@ -31,7 +31,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* REFINED MICRO-GRAIN TEXTURE OVERLAY */
   body::before {
     content: '';
     position: fixed;
@@ -41,7 +40,6 @@
     z-index: 1000;
   }
 
-  /* ── HERO DISPLAY ── */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -104,7 +102,6 @@
     margin: 48px auto 0;
   }
 
-  /* ── MASTER CATALOG SECTION CONTAINER ── */
   .section {
     padding: 80px 40px;
     max-width: 1400px;
@@ -140,7 +137,6 @@
     color: var(--accent-gold);
   }
 
-  /* ── UNIFIED 4-PRODUCT WHOLSEALE GRID ── */
   .tshirt-showcase-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -161,7 +157,6 @@
     border-color: rgba(197, 168, 128, 0.3);
   }
 
-  /* GHOST MODEL VIEWPORT WITH NYLON FEEL HINTING */
   .tspread-image-area {
     margin-bottom: 28px;
     position: relative;
@@ -178,24 +173,32 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
-    transition: background 0.3s ease;
   }
 
-  .tspread-img-placeholder::before, .tspread-img-placeholder::after {
-    content: '';
+  .tspread-display-img {
     position: absolute;
-    background: rgba(197, 168, 128, 0.15);
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
   }
-  .tspread-img-placeholder::before { width: 20px; height: 1px; }
-  .tspread-img-placeholder::after { width: 1px; height: 20px; }
 
-  .tspread-img-placeholder:hover {
-    background: linear-gradient(135deg, #2a303c 0%, var(--studio-gray) 100%);
+  .tspread-display-img.active {
+    opacity: 1;
   }
 
   .tspread-img-upload-hint {
     text-align: center;
     z-index: 2;
+    transition: opacity 0.3s ease;
+  }
+
+  .tspread-img-placeholder.has-image .tspread-img-upload-hint {
+    opacity: 0;
+    pointer-events: none;
   }
 
   .tspread-upload-icon {
@@ -263,7 +266,6 @@
     margin-bottom: 24px;
   }
 
-  /* SPECIFICATIONS BLOCK */
   .tspread-specs {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -325,7 +327,6 @@
     background: rgba(0,0,0,0.1);
   }
 
-  /* ── TECHNICAL LEGEND BLOCK ── */
   .fabric-legend {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -356,7 +357,6 @@
     color: var(--platinum-slate);
   }
 
-  /* ── CLOSING / WHOLESALE PORTAL ── */
   .closing {
     text-align: center;
     padding: 140px 24px;
@@ -421,7 +421,6 @@
     border-color: var(--accent-gold);
   }
 
-  /* ── FOOTER ── */
   footer {
     border-top: 1px solid rgba(255, 255, 255, 0.04);
     padding: 40px 60px;
@@ -445,13 +444,11 @@
     opacity: 0.6;
   }
 
-  /* Custom Clean Scrollbar */
   ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { background: var(--obsidian); }
   ::-webkit-scrollbar-thumb { background: var(--studio-gray); border-radius: 3px; }
   ::-webkit-scrollbar-thumb:hover { background: var(--accent-gold); }
 
-  /* ── TABLET & MOBILE RESPONSIVE OPTIMIZATIONS ── */
   @media (max-width: 1199px) {
     .tshirt-showcase-grid { gap: 32px; }
     .fabric-legend { grid-template-columns: 1fr; gap: 16px; }
@@ -469,7 +466,6 @@
 </head>
 <body>
 
-<!-- HERO DISPLAY -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
@@ -480,7 +476,6 @@
   </div>
 </section>
 
-<!-- UNIFIED SHOWCASE CONTAINER -->
 <section class="section">
   <div class="section-header">
     <span class="section-label">Section 01 // Core Collection</span>
@@ -493,6 +488,7 @@
     <div class="tspread-card">
       <div class="tspread-image-area">
         <div class="tspread-img-placeholder">
+          <img class="tspread-display-img" src="" alt="CoreFlex T-shirt View">
           <div class="tspread-img-upload-hint">
             <div class="tspread-upload-icon">[ View Template ]</div>
             <div class="tspread-upload-label">Nylon-Overlay Ghost Model</div>
@@ -506,16 +502,16 @@
         <span class="tspread-fabric">Matte Tactile Nylon Blend</span>
       </div>
       
-      <h3 class="tspread-name">Apex Ghost Overlay Tee</h3>
+      <h3 class="tspread-name">CoreFlex T-shirt</h3>
       <p class="tspread-desc">Engineered with micro-textural matte nylon overlays to produce an ultra-clean structural silhouette. Seamless edges optimize presentation aesthetic for dynamic digital linesheets.</p>
       
       <div class="tspread-specs">
         <div>
           <div class="tspread-colors-label">Wholesale Palette</div>
           <div class="tspread-swatches">
-            <div class="tspread-swatch swatch-active" style="background: #121417;" title="Obsidian Black"></div>
-            <div class="tspread-swatch" style="background: #3A3F47;" title="Studio Stone"></div>
-            <div class="tspread-swatch" style="background: #D9D2C5;" title="Raw Alabaster"></div>
+            <div class="tspread-swatch swatch-active" style="background: #121417;" title="Obsidian Black" data-img="images/coreflex-black.jpg"></div>
+            <div class="tspread-swatch" style="background: #3A3F47;" title="Studio Stone" data-img="images/coreflex-stone.jpg"></div>
+            <div class="tspread-swatch" style="background: #D9D2C5;" title="Raw Alabaster" data-img="images/coreflex-alabaster.jpg"></div>
           </div>
         </div>
         <div class="tspread-tags-column">
@@ -532,6 +528,7 @@
     <div class="tspread-card">
       <div class="tspread-image-area">
         <div class="tspread-img-placeholder">
+          <img class="tspread-display-img" src="" alt="Aero Terrain T-shirt View">
           <div class="tspread-img-upload-hint">
             <div class="tspread-upload-icon">[ View Template ]</div>
             <div class="tspread-upload-label">Nylon-Overlay Ghost Model</div>
@@ -545,16 +542,16 @@
         <span class="tspread-fabric">Micro-Grid Repel Nylon</span>
       </div>
       
-      <h3 class="tspread-name">Kinetic Shell Overlay Tee</h3>
+      <h3 class="tspread-name">Aero Terrain T-shirt</h3>
       <p class="tspread-desc">A refined composition featuring engineered fluid-wicking panels. Ghost mapping technology delivers full identity visibility with an emphasis on pure structural execution.</p>
       
       <div class="tspread-specs">
         <div>
           <div class="tspread-colors-label">Wholesale Palette</div>
           <div class="tspread-swatches">
-            <div class="tspread-swatch swatch-active" style="background: #1C221E;" title="Alpine Moss"></div>
-            <div class="tspread-swatch" style="background: #121417;" title="Obsidian Black"></div>
-            <div class="tspread-swatch" style="background: #545B68;" title="Stealth Gray"></div>
+            <div class="tspread-swatch swatch-active" style="background: #1C221E;" title="Alpine Moss" data-img="images/aeroterrain-moss.jpg"></div>
+            <div class="tspread-swatch" style="background: #121417;" title="Obsidian Black" data-img="images/aeroterrain-black.jpg"></div>
+            <div class="tspread-swatch" style="background: #545B68;" title="Stealth Gray" data-img="images/aeroterrain-gray.jpg"></div>
           </div>
         </div>
         <div class="tspread-tags-column">
@@ -571,6 +568,7 @@
     <div class="tspread-card">
       <div class="tspread-image-area">
         <div class="tspread-img-placeholder">
+          <img class="tspread-display-img" src="" alt="CottonEase Hybrid T-shirt View">
           <div class="tspread-img-upload-hint">
             <div class="tspread-upload-icon">[ View Template ]</div>
             <div class="tspread-upload-label">Nylon-Overlay Ghost Model</div>
@@ -584,15 +582,15 @@
         <span class="tspread-fabric">Aero-Rib Nylon Comp</span>
       </div>
       
-      <h3 class="tspread-name">Studio Pro Vented Tee</h3>
+      <h3 class="tspread-name">CottonEase Hybrid T-shirt</h3>
       <p class="tspread-desc">Form meets structural recovery. Features discrete ventilation microchannels hidden within the underarm seams to retain an pristine structural silhouette when hung or displayed.</p>
       
       <div class="tspread-specs">
         <div>
           <div class="tspread-colors-label">Wholesale Palette</div>
           <div class="tspread-swatches">
-            <div class="tspread-swatch swatch-active" style="background: #2C3539;" title="Dark Slate"></div>
-            <div class="tspread-swatch" style="background: #4A5160;" title="Shadow Blue"></div>
+            <div class="tspread-swatch swatch-active" style="background: #2C3539;" title="Dark Slate" data-img="images/cottonease-slate.jpg"></div>
+            <div class="tspread-swatch" style="background: #4A5160;" title="Shadow Blue" data-img="images/cottonease-blue.jpg"></div>
           </div>
         </div>
         <div class="tspread-tags-column">
@@ -609,6 +607,7 @@
     <div class="tspread-card">
       <div class="tspread-image-area">
         <div class="tspread-img-placeholder">
+          <img class="tspread-display-img" src="" alt="FlexLite Reach T-shirt View">
           <div class="tspread-img-upload-hint">
             <div class="tspread-upload-icon">[ View Template ]</div>
             <div class="tspread-upload-label">Nylon-Overlay Ghost Model</div>
@@ -622,15 +621,15 @@
         <span class="tspread-fabric">High-Density Contour Shell</span>
       </div>
       
-      <h3 class="tspread-name">Endurance Compression Layer</h3>
+      <h3 class="tspread-name">FlexLite Reach T-shirt</h3>
       <p class="tspread-desc">Crafted for balanced muscle lock and ergonomic articulation. High-density textile mapping ensures optimal fit visualization while showcasing the material's premium hand-feel.</p>
       
       <div class="tspread-specs">
         <div>
           <div class="tspread-colors-label">Wholesale Palette</div>
           <div class="tspread-swatches">
-            <div class="tspread-swatch swatch-active" style="background: #121417;" title="Obsidian Black"></div>
-            <div class="tspread-swatch" style="background: #807E7A;" title="Concrete Ash"></div>
+            <div class="tspread-swatch swatch-active" style="background: #121417;" title="Obsidian Black" data-img="images/flexlite-black.jpg"></div>
+            <div class="tspread-swatch" style="background: #807E7A;" title="Concrete Ash" data-img="images/flexlite-ash.jpg"></div>
           </div>
         </div>
         <div class="tspread-tags-column">
@@ -645,7 +644,6 @@
 
   </div>
 
-  <!-- TECHNICAL TEXTILE BLUEPRINTS -->
   <div class="fabric-legend">
     <div class="fabric-item">
       <h5 class="fabric-item-name">Tactile Matte Nylon</h5>
@@ -662,7 +660,6 @@
   </div>
 </section>
 
-<!-- CLOSING & HUB HUB LINK -->
 <section class="closing">
   <div class="closing-eyebrow">MOVvT Wholesale Portal</div>
   <h2 class="closing-title">Secure Next Season’s <em>Allocation</em></h2>
@@ -674,22 +671,55 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-brand">MOVvT</div>
   <div class="footer-copy">&copy; 2026 MOVvT Studio Inc. All Rights Reserved. Confidential B2B Line Sheet Distribution.</div>
 </footer>
 
 <script>
-  // Soft, performant interaction toggle for dynamic tablet presentation
+  function initProductImages() {
+    document.querySelectorAll('.tspread-card').forEach(card => {
+      const activeSwatch = card.querySelector('.tspread-swatch.swatch-active');
+      const imgElement = card.querySelector('.tspread-display-img');
+      const placeholder = card.querySelector('.tspread-img-placeholder');
+      
+      if (activeSwatch && imgElement) {
+        const initialImgSrc = activeSwatch.getAttribute('data-img');
+        if (initialImgSrc && !initialImgSrc.includes('PLACEHOLDER') && initialImgSrc.trim() !== "") {
+          imgElement.src = initialImgSrc;
+          imgElement.classList.add('active');
+          placeholder.classList.add('has-image');
+        }
+      }
+    });
+  }
+
   document.querySelectorAll('.tspread-swatch').forEach(swatch => {
     swatch.addEventListener('click', function(e) {
       e.stopPropagation();
-      const parentContainer = this.closest('.tspread-swatches');
-      parentContainer.querySelectorAll('.tspread-swatch').forEach(s => s.classList.remove('swatch-active'));
+      
+      const card = this.closest('.tspread-card');
+      const swatchesContainer = this.closest('.tspread-swatches');
+      const imgElement = card.querySelector('.tspread-display-img');
+      const placeholder = card.querySelector('.tspread-img-placeholder');
+      
+      swatchesContainer.querySelectorAll('.tspread-swatch').forEach(s => s.classList.remove('swatch-active'));
       this.classList.add('swatch-active');
+      
+      const targetImgSrc = this.getAttribute('data-img');
+      if (imgElement && targetImgSrc && !targetImgSrc.includes('PLACEHOLDER') && targetImgSrc.trim() !== "") {
+        imgElement.classList.remove('active');
+        
+        setTimeout(() => {
+          imgElement.src = targetImgSrc;
+          imgElement.classList.add('active');
+          placeholder.classList.add('has-image');
+        }, 150);
+      }
     });
   });
+
+  window.addEventListener('DOMContentLoaded', initProductImages);
 </script>
 </body>
 </html>
