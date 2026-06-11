@@ -84,7 +84,7 @@
     line-height: 1;
     color: var(--pure-white);
     margin-bottom: 20px;
-    text-indent: 24px; /* Fixes optical centering due to letter-spacing */
+    text-indent: 24px;
   }
 
   .hero-tagline {
@@ -114,7 +114,7 @@
   .section-header {
     display: flex;
     flex-direction: column;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
     position: relative;
   }
 
@@ -140,18 +140,18 @@
     color: var(--accent-gold);
   }
 
-  /* ── REFINED WHOLSEALE GRID SPREAD ── */
-  .tshirt-spread {
+  /* ── UNIFIED 4-PRODUCT WHOLSEALE GRID ── */
+  .tshirt-showcase-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 60px;
-    margin-bottom: 100px;
+    gap: 40px;
+    margin-bottom: 80px;
   }
 
   .tspread-card {
     background: var(--matte-charcoal);
     border: 1px solid var(--subtle-card-border);
-    padding: 40px;
+    padding: 36px;
     border-radius: 8px;
     box-shadow: 0 30px 60px rgba(0,0,0,0.4);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
@@ -163,13 +163,13 @@
 
   /* GHOST MODEL VIEWPORT WITH NYLON FEEL HINTING */
   .tspread-image-area {
-    margin-bottom: 36px;
+    margin-bottom: 28px;
     position: relative;
   }
 
   .tspread-img-placeholder {
     width: 100%;
-    height: 480px;
+    height: 420px;
     background: linear-gradient(135deg, var(--studio-gray) 0%, var(--obsidian) 100%);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 4px;
@@ -181,7 +181,6 @@
     transition: background 0.3s ease;
   }
 
-  /* Subtle crosshair aesthetic representing tech design/ghost templates */
   .tspread-img-placeholder::before, .tspread-img-placeholder::after {
     content: '';
     position: absolute;
@@ -200,9 +199,9 @@
   }
 
   .tspread-upload-icon {
-    font-size: 20px;
+    font-size: 18px;
     color: var(--accent-gold);
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     font-weight: 200;
     letter-spacing: 2px;
   }
@@ -212,7 +211,7 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--warm-white);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
   .tspread-upload-sub {
@@ -226,8 +225,8 @@
     justify-content: space-between;
     align-items: flex-start;
     border-bottom: 1px solid var(--divider-glow);
-    padding-bottom: 16px;
-    margin-bottom: 20px;
+    padding-bottom: 14px;
+    margin-bottom: 18px;
   }
 
   .tspread-number {
@@ -249,20 +248,19 @@
 
   .tspread-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 34px;
+    font-size: 30px;
     font-weight: 300;
     letter-spacing: 1px;
     color: var(--pure-white);
     line-height: 1.2;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
 
   .tspread-desc {
     font-size: 13px;
-    line-height: 1.8;
+    line-height: 1.7;
     color: var(--platinum-slate);
-    margin-bottom: 28px;
-    max-width: 90%;
+    margin-bottom: 24px;
   }
 
   /* SPECIFICATIONS BLOCK */
@@ -325,31 +323,6 @@
     padding: 4px 8px;
     border-radius: 2px;
     background: rgba(0,0,0,0.1);
-  }
-
-  /* ── GRID SYSTEM (SECONDARY REVEAL) ── */
-  .tshirt-grid-4 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-  }
-
-  .tshirt-grid-4 .tspread-card {
-    padding: 24px;
-  }
-
-  .tshirt-grid-4 .tspread-img-placeholder {
-    height: 280px;
-  }
-
-  .tshirt-grid-4 .tspread-name {
-    font-size: 22px;
-  }
-
-  .tshirt-grid-4 .tspread-specs {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 12px;
   }
 
   /* ── TECHNICAL LEGEND BLOCK ── */
@@ -472,7 +445,7 @@
     opacity: 0.6;
   }
 
-  /* Custom Clean Scrollbar for Modern Browsers */
+  /* Custom Clean Scrollbar */
   ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { background: var(--obsidian); }
   ::-webkit-scrollbar-thumb { background: var(--studio-gray); border-radius: 3px; }
@@ -480,15 +453,16 @@
 
   /* ── TABLET & MOBILE RESPONSIVE OPTIMIZATIONS ── */
   @media (max-width: 1199px) {
-    .tshirt-spread { gap: 32px; }
-    .tshirt-grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .tshirt-showcase-grid { gap: 32px; }
     .fabric-legend { grid-template-columns: 1fr; gap: 16px; }
+  }
+
+  @media (max-width: 992px) {
+    .tshirt-showcase-grid { grid-template-columns: 1fr; gap: 40px; }
   }
 
   @media (max-width: 768px) {
     .section { padding: 60px 20px; }
-    .tshirt-spread { grid-template-columns: 1fr; gap: 40px; }
-    .tshirt-grid-4 { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 20px; text-align: center; }
   }
 </style>
@@ -503,16 +477,17 @@
     <h1 class="hero-brand-title">MOVvT</h1>
     <div class="hero-indicator"></div>
     <p class="hero-tagline">High-performance architecture meets tactile minimalism. Crafted for advanced movement.</p>
-  </section>
+  </div>
+</section>
 
-<!-- MAIN SPREAD EXHIBITION -->
+<!-- UNIFIED SHOWCASE CONTAINER -->
 <section class="section">
   <div class="section-header">
-    <span class="section-label">Section 01 // Core Concepts</span>
-    <h2 class="section-title">The <em>Premium</em> Ghost Overlay Matrix</h2>
+    <span class="section-label">Section 01 // Core Collection</span>
+    <h2 class="section-title">The <em>Premium</em> Apparel Run</h2>
   </div>
 
-  <div class="tshirt-spread">
+  <div class="tshirt-showcase-grid">
     
     <!-- PRODUCT 01 -->
     <div class="tspread-card">
@@ -521,7 +496,7 @@
           <div class="tspread-img-upload-hint">
             <div class="tspread-upload-icon">[ View Template ]</div>
             <div class="tspread-upload-label">Nylon-Overlay Ghost Model</div>
-            <div class="tspread-upload-sub">16:9 Tablet High-Detail Display Asset</div>
+            <div class="tspread-upload-sub">Asset Slot: Core 01</div>
           </div>
         </div>
       </div>
@@ -532,7 +507,7 @@
       </div>
       
       <h3 class="tspread-name">Apex Ghost Overlay Tee</h3>
-      <p class="tspread-desc">Engineered with micro-textural matte nylon overlays to produce an ultra-clean structural silhouette. Seamless structural edges optimize presentation aesthetic for dynamic wholesale linesheets.</p>
+      <p class="tspread-desc">Engineered with micro-textural matte nylon overlays to produce an ultra-clean structural silhouette. Seamless edges optimize presentation aesthetic for dynamic digital linesheets.</p>
       
       <div class="tspread-specs">
         <div>
@@ -560,7 +535,7 @@
           <div class="tspread-img-upload-hint">
             <div class="tspread-upload-icon">[ View Template ]</div>
             <div class="tspread-upload-label">Nylon-Overlay Ghost Model</div>
-            <div class="tspread-upload-sub">16:9 Tablet High-Detail Display Asset</div>
+            <div class="tspread-upload-sub">Asset Slot: Core 02</div>
           </div>
         </div>
       </div>
@@ -592,81 +567,97 @@
       </div>
     </div>
 
+    <!-- PRODUCT 03 -->
+    <div class="tspread-card">
+      <div class="tspread-image-area">
+        <div class="tspread-img-placeholder">
+          <div class="tspread-img-upload-hint">
+            <div class="tspread-upload-icon">[ View Template ]</div>
+            <div class="tspread-upload-label">Nylon-Overlay Ghost Model</div>
+            <div class="tspread-upload-sub">Asset Slot: Core 03</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="tspread-meta">
+        <span class="tspread-number">M26-G03</span>
+        <span class="tspread-fabric">Aero-Rib Nylon Comp</span>
+      </div>
+      
+      <h3 class="tspread-name">Studio Pro Vented Tee</h3>
+      <p class="tspread-desc">Form meets structural recovery. Features discrete ventilation microchannels hidden within the underarm seams to retain an pristine structural silhouette when hung or displayed.</p>
+      
+      <div class="tspread-specs">
+        <div>
+          <div class="tspread-colors-label">Wholesale Palette</div>
+          <div class="tspread-swatches">
+            <div class="tspread-swatch swatch-active" style="background: #2C3539;" title="Dark Slate"></div>
+            <div class="tspread-swatch" style="background: #4A5160;" title="Shadow Blue"></div>
+          </div>
+        </div>
+        <div class="tspread-tags-column">
+          <div class="tspread-colors-label">Attributes</div>
+          <div class="tspread-tags">
+            <span class="tspread-tag">Aero-Ventilation</span>
+            <span class="tspread-tag">Anti-Odor Knit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 04 -->
+    <div class="tspread-card">
+      <div class="tspread-image-area">
+        <div class="tspread-img-placeholder">
+          <div class="tspread-img-upload-hint">
+            <div class="tspread-upload-icon">[ View Template ]</div>
+            <div class="tspread-upload-label">Nylon-Overlay Ghost Model</div>
+            <div class="tspread-upload-sub">Asset Slot: Core 04</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="tspread-meta">
+        <span class="tspread-number">M26-G04</span>
+        <span class="tspread-fabric">High-Density Contour Shell</span>
+      </div>
+      
+      <h3 class="tspread-name">Endurance Compression Layer</h3>
+      <p class="tspread-desc">Crafted for balanced muscle lock and ergonomic articulation. High-density textile mapping ensures optimal fit visualization while showcasing the material's premium hand-feel.</p>
+      
+      <div class="tspread-specs">
+        <div>
+          <div class="tspread-colors-label">Wholesale Palette</div>
+          <div class="tspread-swatches">
+            <div class="tspread-swatch swatch-active" style="background: #121417;" title="Obsidian Black"></div>
+            <div class="tspread-swatch" style="background: #807E7A;" title="Concrete Ash"></div>
+          </div>
+        </div>
+        <div class="tspread-tags-column">
+          <div class="tspread-colors-label">Attributes</div>
+          <div class="tspread-tags">
+            <span class="tspread-tag">Zonal Compression</span>
+            <span class="tspread-tag">Thermal Control</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
-</section>
 
-<!-- SUB-SECTION MATRIX DETAIL -->
-<section class="section" style="background-color: #090A0C; width: 100vw; max-width: 100%; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;">
-  <div class="section" style="padding-top:60px; padding-bottom:60px;">
-    <div class="section-header">
-      <span class="section-label">Section 02 // Variant Matrix</span>
-      <h2 class="section-title">The Complete <em>Wholesale</em> Run</h2>
+  <!-- TECHNICAL TEXTILE BLUEPRINTS -->
+  <div class="fabric-legend">
+    <div class="fabric-item">
+      <h5 class="fabric-item-name">Tactile Matte Nylon</h5>
+      <p class="fabric-item-desc">A premium luxury composite engineered to block moisture while maintaining a hyper-matte, completely smooth exterior profile.</p>
     </div>
-
-    <div class="tshirt-grid-4">
-      <!-- GRID ITEM 1 -->
-      <div class="tspread-card">
-        <div class="tspread-image-area"><div class="tspread-img-placeholder"></div></div>
-        <div class="tspread-meta"><span class="tspread-number">M26-T01</span></div>
-        <h4 class="tspread-name">Studio Core Tee</h4>
-        <div class="tspread-specs">
-          <div class="tspread-swatches">
-            <div class="tspread-swatch swatch-active" style="background:#121417;"></div>
-            <div class="tspread-swatch" style="background:#E2DFD9;"></div>
-          </div>
-        </div>
-      </div>
-      <!-- GRID ITEM 2 -->
-      <div class="tspread-card">
-        <div class="tspread-image-area"><div class="tspread-img-placeholder"></div></div>
-        <div class="tspread-meta"><span class="tspread-number">M26-T02</span></div>
-        <h4 class="tspread-name">Vented Tech Top</h4>
-        <div class="tspread-specs">
-          <div class="tspread-swatches">
-            <div class="tspread-swatch swatch-active" style="background:#2C3539;"></div>
-            <div class="tspread-swatch" style="background:#4A5160;"></div>
-          </div>
-        </div>
-      </div>
-      <!-- GRID ITEM 3 -->
-      <div class="tspread-card">
-        <div class="tspread-image-area"><div class="tspread-img-placeholder"></div></div>
-        <div class="tspread-meta"><span class="tspread-number">M26-T03</span></div>
-        <h4 class="tspread-name">Aero Shell Polo</h4>
-        <div class="tspread-specs">
-          <div class="tspread-swatches">
-            <div class="tspread-swatch swatch-active" style="background:#15181F;"></div>
-          </div>
-        </div>
-      </div>
-      <!-- GRID ITEM 4 -->
-      <div class="tspread-card">
-        <div class="tspread-image-area"><div class="tspread-img-placeholder"></div></div>
-        <div class="tspread-meta"><span class="tspread-number">M26-T04</span></div>
-        <h4 class="tspread-name">Compression Layer</h4>
-        <div class="tspread-specs">
-          <div class="tspread-swatches">
-            <div class="tspread-swatch swatch-active" style="background:#121417;"></div>
-            <div class="tspread-swatch" style="background:#807E7A;"></div>
-          </div>
-        </div>
-      </div>
+    <div class="fabric-item">
+      <h5 class="fabric-item-name">Micro-Grid Stretch</h5>
+      <p class="fabric-item-desc">Constructed with high tensile flexibility for functional recovery, giving the ghost-molded pieces their crisp structural lines.</p>
     </div>
-
-    <!-- TECHNICAL TEXTILE BLUEPRINTS -->
-    <div class="fabric-legend">
-      <div class="fabric-item">
-        <h5 class="fabric-item-name">Tactile Matte Nylon</h5>
-        <p class="fabric-item-desc">A premium luxury composite engineered to block moisture while maintaining a hyper-matte, completely smooth exterior profile.</p>
-      </div>
-      <div class="fabric-item">
-        <h5 class="fabric-item-name">Micro-Grid Stretch</h5>
-        <p class="fabric-item-desc">Constructed with high tensile flexibility for functional recovery, giving the ghost-molded pieces their crisp structural lines.</p>
-      </div>
-      <div class="fabric-item">
-        <h5 class="fabric-item-name">Aero-Rib Knit</h5>
-        <p class="fabric-item-desc">Integrated microchannels strategically located to amplify breathability without compromising minimal geometric lines.</p>
-      </div>
+    <div class="fabric-item">
+      <h5 class="fabric-item-name">Aero-Rib Knit</h5>
+      <p class="fabric-item-desc">Integrated microchannels strategically located to amplify breathability without compromising minimal geometric lines.</p>
     </div>
   </div>
 </section>
